@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    script(type='text/javascript', src='/jquery.min.js')
+    script(type='text/javascript', src='/js/bootstrap.min.js')
+
+  body
+    .nav
+      a(href='/index') Главная
+      a(href='/infos') Инфо
+      a(href='/services') Услуги
+      a(href='/portfolio') Портфолио
+      a(href='/contacts') Контакты
+      if user_id
+       a(href='/user/cabinet') Кабинет пользователя
+       a(href='/user/logout') Выход
+      else
+       a(href='/user/register') Регистрация
+       a(href='/user/login') Вход
+
+    block content

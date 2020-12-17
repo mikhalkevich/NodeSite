@@ -1,0 +1,24 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+.nav{
+  display: flex;
+}
+.nav a{
+  flex: 1;
+  text-align: center;
+  background-color: #808000;
+  color: #02024a;
+  padding: 10px 0;
+  border-right: 1px #02024a solid;
+}
+.nav a:hover{
+  background-color: #ffffff;
+  color: #000000;
+}
+
