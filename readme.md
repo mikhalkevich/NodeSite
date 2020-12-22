@@ -9,3 +9,7 @@ Node.js шаблон. Основа приложения - фрэймворк Exp
 - cd NodeSite
 - npm i
 - http://localhost:3001
+
+## Links
+Данное приложение - это результат практических занятий курса Node.js
+Теория и практика доступны по ссылке [http://erud.by/node](http://erud.by/node)
