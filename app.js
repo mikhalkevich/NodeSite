@@ -6,8 +6,13 @@ var logger = require('morgan');
 
 var session = require('express-session');
 
+const fileUpload = require('express-fileupload');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var cabinetRouter = require('./routes/cabinet');
+var checkAuth = require('./middleware/checkAuth');
+
 
 var app = express();
 
@@ -25,14 +30,16 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules/bootstrap/dist')))
 app.use(express.static(path.join(__dirname, 'node_modules/jquery/dist')))
+app.use(fileUpload());
 
 app.use(function (req, res, next) {
     res.locals = {
-        user_id: req.session.user_id
+        user: req.session.user
     }
     next();
 })
 app.use('/user', usersRouter);
+app.use('/cabinet', checkAuth, cabinetRouter);
 app.use('/', indexRouter); // последний маршрут(Дефолтный роут)
 
 

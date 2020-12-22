@@ -1,15 +1,25 @@
 extends layout
 
+block styles
+    link(rel='stylesheet', href='/stylesheets/style2.css')
+
 block content
-  h1 login
-  if errorText
-    h2= errorText
-  form(action='/user/login' method='post')
-    .form-group
-      label(for='email') Email address
-      input#email.form-control(type='email' name='email' value='#{email}')
-    .form-group
-      label(for='password') Password
-      input#password.form-control(type='password' name='password')
-    button.btn.btn-primary(type='submit') Submit
+    .row.div-test
+        .col-sm-12
+            .conteiner-s-in.text-center
+                form.form-signin(action='/user/login' method='post')
+                    if errorText
+                        h2.h3.mb-3.font-weight-normal.text-danger= errorText
+                    else
+                        h1.h3.mb-3.font-weight-normal Введиде данные для входа
+                    label.sr-only(for='email') Email
+                    input#email.form-control(type='email' placeholder='email' name='email' value='#{email}')
+                    label.sr-only(for='inputPassword') Password
+                    input#inputPassword.form-control(type='password' placeholder='password' name='password')
+                    .checkbox.mb-3
+                        label
+                            input(type='checkbox' value='remember-me')
+                            |  Запомнить меня
+                    button.btn.btn-lg.btn-primary.btn-block(type='submit') Вход
+
 

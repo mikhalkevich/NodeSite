@@ -44,8 +44,8 @@ router.post('/login', function (req, res, next) {
     User.findOne({where: {email: req.body.email, password: req.body.password}})
         .then(data => {
             if (data) {
-               req.session.user_id = data.id;
-               res.redirect('/');
+               req.session.user = data;
+               res.redirect('/cabinet/info');
             } else {
                 res.render('login', {errorText: 'error exit'})
             }

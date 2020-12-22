@@ -4,21 +4,37 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/css/bootstrap.min.css')
+    block styles
     script(type='text/javascript', src='/jquery.min.js')
     script(type='text/javascript', src='/js/bootstrap.min.js')
-
   body
-    .nav
-      a(href='/index') Главная
-      a(href='/infos') Инфо
-      a(href='/services') Услуги
-      a(href='/portfolio') Портфолио
-      a(href='/contacts') Контакты
-      if user_id
-       a(href='/user/cabinet') Кабинет пользователя
-       a(href='/user/logout') Выход
-      else
-       a(href='/user/register') Регистрация
-       a(href='/user/login') Вход
-
-    block content
+      .container-fluid
+          .row
+              .col-sm-12
+                  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+                      a.navbar-brand(href='#') Тестовое приложение
+                      button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNavDropdown' aria-controls='navbarNavDropdown' aria-expanded='false' aria-label='Toggle navigation')
+                          span.navbar-toggler-icon
+                      #navbarNavDropdown.collapse.navbar-collapse
+                          ul.navbar-nav
+                              li.nav-item
+                                  a.nav-link(href='/index') Главная
+                              li.nav-item
+                                  a.nav-link(href='/infos') Инфо
+                              li.nav-item
+                                  a.nav-link(href='/services') Услуги
+                              li.nav-item
+                                  a.nav-link(href='/portfolio') Портфолио
+                              li.nav-item
+                                  a.nav-link(href='/contacts') Контакты
+                                  if user
+                                      li.nav-item
+                                          a.nav-link(href='/cabinet/info') Кабинет пользователя
+                                      li.nav-item
+                                          a.nav-link(href='/user/logout') Выход
+                                  else
+                                      li.nav-item
+                                          a.nav-link(href='/user/register') Регистрация
+                                      li.nav-item
+                                          a.nav-link(href='/user/login') Вход
+          block content

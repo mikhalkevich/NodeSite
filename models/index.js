@@ -21,5 +21,6 @@ db.sequelize = sequelize;
 
 db.maintexts = require("./maintexts.model.js")(sequelize, Sequelize);
 db.users = require("./users.model.js")(sequelize, Sequelize);
+db.accounts = require("./accounts.model")(sequelize, Sequelize);
 
 module.exports = db;

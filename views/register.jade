@@ -1,16 +1,22 @@
 extends layout
 
 block content
-  h1 Registration
-  form(action='/user/register' method='post')
-    .form-group
-      label(for='email') Email address
-      input#email.form-control(type='email' name='email')
-    .form-group
-      label(for='name') Name
-      input#name.form-control(type='text' name='name')
-    .form-group
-      label(for='password') Password
-      input#password.form-control(type='password' name='password')
-    button.btn.btn-primary(type='submit') Submit
+    .row
+        .col-sm-12
+            .conteiner-s-in.text-center
+                form.form-signin(action='/user/register' method='post')
+
+                    if errorText
+                        h2.h3.mb-3.font-weight-normal.text-danger= errorText
+                    else
+                        h1.h3.mb-3.font-weight-normal Введиде данные для регистрации
+
+                    label.sr-only(for='email') Логин
+                    input#email.form-control(type='email' placeholder='Логин/email' name='email')
+                    label.sr-only(for='name') Имя
+                    input#name.form-control(type='text' placeholder='Имя' name='name')
+                    label.sr-only(for='inputPassword') Пароль
+                    input#inputPassword.form-control(type='password' placeholder='Пароль' name='password')
+                    button.btn.btn-lg.btn-primary.btn-block(type='submit') Регистрация
+
 
