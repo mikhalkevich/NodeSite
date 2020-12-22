@@ -73,7 +73,22 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `createdAt`, `updatedAt`, `status`) VALUES
 (8, 'poi', 'poi@gmail.com', 'poi', '2020-12-17', '2020-12-17', NULL),
 (9, 'qwe', 'qwe@gmail.com', 'qwe', '2020-12-17', '2020-12-17', NULL);
+-- --------------------------------------------------------
 
+--
+-- Структура таблицы `accounts`
+--
+
+CREATE TABLE `accounts` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `fio` tinytext DEFAULT NULL,
+  `phone` tinytext NOT NULL,
+  `file_name` tinytext NOT NULL,
+  `createdAt` date NOT NULL,
+  `updatedAt` date NOT NULL,
+  `status` tinytext DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --
 -- Индексы сохранённых таблиц
 --
